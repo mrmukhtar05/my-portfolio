@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <g stroke="#11C5F5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Left -->
+    <path d="M10 25L30 8L50 28"></path>
+    <path d="M10 25V70L20 80V38L40 58V92"></path>
+
+    <!-- Center -->
+    <path d="M50 28V58"></path>
+
+    <!-- Right -->
+    <path d="M90 25L70 8L50 28"></path>
+    <path d="M90 25V70L80 80V38L60 58V92"></path>
+  </g>
+</svg>
