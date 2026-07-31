@@ -71,7 +71,7 @@ const Projects = () => {
                     : getImageUrl(project.image)
                 }
                 alt={project.title}
-                className="w-full h-60 object-cover"
+                className="w-full h-80 object-cover"
               />
 
               <div className="p-6">
@@ -79,7 +79,7 @@ const Projects = () => {
                   {project.title}
                 </h3>
 
-                <p className="text-gray-400 mt-3">
+                <p className="text-gray-400 text-sm mt-3">
                   {project.description}
                 </p>
 
