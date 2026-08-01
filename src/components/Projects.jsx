@@ -31,39 +31,60 @@ const Projects = () => {
   useEffect(() => {
     getProjects()
       .then((res) => {
-        if (res?.data?.length) setProjects(res.data);
+        if (res?.data?.length) {
+          setProjects(res.data);
+        }
       })
       .catch(() => {
-        // keep fallback projects if backend/data not available yet
+        // Keep fallback projects
       });
   }, []);
 
   return (
-    <section id="projects" className="py-24 bg-white text-slate-900">
-      <div className="max-w-7xl mx-auto px-6">
+    <section
+      id="projects"
+      className="py-14 sm:py-20 lg:py-24 bg-white text-slate-900"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
+        {/* ================= Heading ================= */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-14 lg:mb-16"
         >
-          <h2 className="text-5xl font-bold">
-            My <span className="text-emerald-500">Projects</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
+            My{" "}
+            <span className="text-emerald-500">
+              Projects
+            </span>
           </h2>
 
-          <p className="text-slate-500 mt-4">
+          <p className="text-xs sm:text-sm md:text-base text-slate-500 mt-3 sm:mt-4 max-w-xl mx-auto">
             Some projects that showcase my skills and experience.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        {/* ================= Projects Grid ================= */}
+        <div className="grid sm:grid-cols-2 gap-5 sm:gap-7 lg:gap-8">
+
           {projects.map((project, index) => (
             <motion.div
               key={project._id || index}
-              whileHover={{ y: -10 }}
-              className="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 hover:border-emerald-400 transition shadow-sm"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.1,
+              }}
+              viewport={{ once: true }}
+              whileHover={{ y: -6 }}
+              className="bg-slate-50 rounded-xl sm:rounded-2xl overflow-hidden border border-slate-200 hover:border-emerald-400 transition-all duration-300 shadow-sm hover:shadow-md"
             >
+
+              {/* ================= Project Image ================= */}
               <img
                 src={
                   project.image?.startsWith("/projects")
@@ -71,60 +92,69 @@ const Projects = () => {
                     : getImageUrl(project.image)
                 }
                 alt={project.title}
-                className="w-full h-80 object-cover"
+                className="w-full h-44 sm:h-56 lg:h-72 object-cover"
               />
 
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-slate-900">
+              {/* ================= Content ================= */}
+              <div className="p-4 sm:p-5 lg:p-6">
+
+                {/* Title */}
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-slate-900">
                   {project.title}
                 </h3>
 
-                <p className="text-slate-500 text-sm mt-3">
+                {/* Description */}
+                <p className="text-slate-500 text-[11px] sm:text-sm mt-2 sm:mt-3 leading-5 sm:leading-6">
                   {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mt-5">
+                {/* ================= Technologies ================= */}
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-4 sm:mt-5">
                   {(project.technologies || []).map((item) => (
                     <span
                       key={item}
-                      className="px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-sm"
+                      className="px-2 sm:px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-[9px] sm:text-xs lg:text-sm font-medium"
                     >
                       {item}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex gap-4 mt-6">
+                {/* ================= Buttons ================= */}
+                <div className="flex flex-wrap gap-2 sm:gap-3 mt-5 sm:mt-6">
+
+                  {/* Live Demo */}
                   {project.liveDemo && (
                     <a
                       href={project.liveDemo}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex items-center gap-2 bg-emerald-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-emerald-700 transition"
+                      className="flex items-center gap-1.5 sm:gap-2 bg-emerald-600 text-white px-3 sm:px-5 py-2 rounded-lg text-xs sm:text-sm font-semibold hover:bg-emerald-700 transition"
                     >
-                      <FaExternalLinkAlt />
+                      <FaExternalLinkAlt className="text-xs sm:text-sm" />
                       Live Demo
                     </a>
                   )}
 
+                  {/* GitHub */}
                   {project.github && (
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex items-center gap-2 border border-emerald-400 text-slate-900 px-5 py-2 rounded-lg hover:bg-emerald-400 hover:text-white transition"
+                      className="flex items-center gap-1.5 sm:gap-2 border border-emerald-400 text-slate-900 px-3 sm:px-5 py-2 rounded-lg text-xs sm:text-sm font-semibold hover:bg-emerald-500 hover:text-white transition"
                     >
-                      <FaGithub />
+                      <FaGithub className="text-sm sm:text-base" />
                       GitHub
                     </a>
                   )}
-                </div>
 
+                </div>
               </div>
             </motion.div>
           ))}
-        </div>
 
+        </div>
       </div>
     </section>
   );
