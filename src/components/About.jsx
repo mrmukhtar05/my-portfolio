@@ -104,7 +104,7 @@ const About = () => {
 
           <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
             I love creating modern, scalable and user-friendly web
-            applications with clean code and beautiful UI.
+            applications with clean code and beautiful UI. 
           </p>
         </motion.div>
 
