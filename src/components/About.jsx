@@ -86,7 +86,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="bg-slate-950 text-white py-24 px-6"
+      className="bg-white text-slate-900 py-24 px-6"
     >
       <div className="max-w-7xl mx-auto">
 
@@ -99,10 +99,10 @@ const About = () => {
           className="text-center mb-20"
         >
           <h2 className="text-5xl font-bold">
-            About <span className="text-cyan-400">Me</span>
+            About <span className="text-emerald-500">Me</span>
           </h2>
 
-          <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+          <p className="text-slate-500 mt-4 max-w-2xl mx-auto">
             I love creating modern, scalable and user-friendly web
             applications with clean code and beautiful UI. 
           </p>
@@ -118,29 +118,29 @@ const About = () => {
             viewport={{ once: true }}
           >
             <h3 className="text-3xl font-bold mb-6">
-              Hi, I'm <span className="text-cyan-400">{about.name}</span>
+              Hi, I'm <span className="text-emerald-500">{about.name}</span>
             </h3>
 
-            <p className="text-gray-400 leading-8">
+            <p className="text-slate-500 text-sm sm:text-base leading-6 sm:leading-8">
               {about.bio}
             </p>
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-5 mt-10">
 
-              <div className="bg-slate-900 rounded-2xl p-6 text-center border border-cyan-500/20">
-                <h3 className="text-3xl font-bold text-cyan-400">{projectCount}+</h3>
-                <p className="text-gray-400 mt-2">Projects</p>
+              <div className="bg-slate-50 rounded-2xl p-6 text-center border border-emerald-500/20">
+                <h3 className="text-3xl font-bold text-emerald-500">{projectCount}+</h3>
+                <p className="text-slate-500 mt-2">Projects</p>
               </div>
 
-              <div className="bg-slate-900 rounded-2xl p-6 text-center border border-cyan-500/20">
-                <h3 className="text-3xl font-bold text-cyan-400">{skills.length}+</h3>
-                <p className="text-gray-400 mt-2">Technologies</p>
+              <div className="bg-slate-50 rounded-2xl p-6 text-center border border-emerald-500/20">
+                <h3 className="text-3xl font-bold text-emerald-500">{skills.length}+</h3>
+                <p className="text-slate-500 mt-2">Technologies</p>
               </div>
 
-              <div className="bg-slate-900 rounded-2xl p-6 text-center border border-cyan-500/20">
-                <h3 className="text-3xl font-bold text-cyan-400">100%</h3>
-                <p className="text-gray-400 mt-2">Dedication</p>
+              <div className="bg-slate-50 rounded-2xl p-6 text-center border border-emerald-500/20">
+                <h3 className="text-3xl font-bold text-emerald-500">100%</h3>
+                <p className="text-slate-500 mt-2">Dedication</p>
               </div>
 
             </div>
@@ -153,18 +153,18 @@ const About = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-5">
+            <div className="grid grid-cols-4 gap-2 sm:gap-5">
 
               {skills.map((skill, index) => (
                 <div
                   key={skill._id || index}
-                  className="bg-slate-900 border border-cyan-500/20 rounded-2xl p-6 flex flex-col items-center hover:border-cyan-400 hover:-translate-y-2 transition duration-300"
+                  className="bg-slate-50 border border-emerald-500/20 rounded-xl sm:rounded-2xl p-2 sm:p-6 flex flex-col items-center hover:border-emerald-400 hover:-translate-y-2 transition duration-300"
                 >
-                  <div className="text-4xl text-cyan-400 mb-3">
+                  <div className="text-xl sm:text-4xl text-emerald-500 mb-1 sm:mb-3">
                     {getIconForSkill(skill.name)}
                   </div>
 
-                  <p className="text-sm">{skill.name}</p>
+                  <p className="text-[10px] sm:text-sm text-center">{skill.name}</p>
                 </div>
               ))}
 

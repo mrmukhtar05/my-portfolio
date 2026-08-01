@@ -39,7 +39,7 @@ const Projects = () => {
   }, []);
 
   return (
-    <section id="projects" className="py-24 bg-slate-900 text-white">
+    <section id="projects" className="py-24 bg-white text-slate-900">
       <div className="max-w-7xl mx-auto px-6">
 
         <motion.div
@@ -49,10 +49,10 @@ const Projects = () => {
           className="text-center mb-16"
         >
           <h2 className="text-5xl font-bold">
-            My <span className="text-cyan-400">Projects</span>
+            My <span className="text-emerald-500">Projects</span>
           </h2>
 
-          <p className="text-gray-400 mt-4">
+          <p className="text-slate-500 mt-4">
             Some projects that showcase my skills and experience.
           </p>
         </motion.div>
@@ -62,7 +62,7 @@ const Projects = () => {
             <motion.div
               key={project._id || index}
               whileHover={{ y: -10 }}
-              className="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 hover:border-cyan-400 transition"
+              className="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 hover:border-emerald-400 transition shadow-sm"
             >
               <img
                 src={
@@ -75,11 +75,11 @@ const Projects = () => {
               />
 
               <div className="p-6">
-                <h3 className="text-2xl font-bold">
+                <h3 className="text-2xl font-bold text-slate-900">
                   {project.title}
                 </h3>
 
-                <p className="text-gray-400 text-sm mt-3">
+                <p className="text-slate-500 text-sm mt-3">
                   {project.description}
                 </p>
 
@@ -87,7 +87,7 @@ const Projects = () => {
                   {(project.technologies || []).map((item) => (
                     <span
                       key={item}
-                      className="px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 text-sm"
+                      className="px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-sm"
                     >
                       {item}
                     </span>
@@ -100,7 +100,7 @@ const Projects = () => {
                       href={project.liveDemo}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex items-center gap-2 bg-cyan-500 text-black px-5 py-2 rounded-lg font-semibold hover:bg-cyan-400 transition"
+                      className="flex items-center gap-2 bg-emerald-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-emerald-700 transition"
                     >
                       <FaExternalLinkAlt />
                       Live Demo
@@ -112,7 +112,7 @@ const Projects = () => {
                       href={project.github}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex items-center gap-2 border border-cyan-400 px-5 py-2 rounded-lg hover:bg-cyan-400 hover:text-black transition"
+                      className="flex items-center gap-2 border border-emerald-400 text-slate-900 px-5 py-2 rounded-lg hover:bg-emerald-400 hover:text-white transition"
                     >
                       <FaGithub />
                       GitHub
