@@ -48,9 +48,7 @@ const FAQs = () => {
   }, []);
 
   const toggleFAQ = (index) => {
-    setActiveIndex(
-      activeIndex === index ? null : index
-    );
+    setActiveIndex(activeIndex === index ? null : index);
   };
 
   return (
@@ -67,6 +65,7 @@ const FAQs = () => {
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
 
         {/* ================= Heading ================= */}
+
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -83,7 +82,7 @@ const FAQs = () => {
             className="
               text-3xl
               sm:text-4xl
-              lg:text-5xl
+              lg:text-[28px]
               font-bold
             "
           >
@@ -98,6 +97,7 @@ const FAQs = () => {
               text-xs
               sm:text-sm
               md:text-base
+              lg:text-[18px]
               text-slate-500
               mt-3
               sm:mt-4
@@ -105,6 +105,7 @@ const FAQs = () => {
               mx-auto
               leading-5
               sm:leading-6
+              lg:leading-7
             "
           >
             Find answers to some common questions about my
@@ -113,6 +114,7 @@ const FAQs = () => {
         </motion.div>
 
         {/* ================= FAQ List ================= */}
+
         <div className="space-y-3 sm:space-y-4 lg:space-y-5">
 
           {faqs.map((faq, index) => {
@@ -148,6 +150,7 @@ const FAQs = () => {
               >
 
                 {/* ================= Question ================= */}
+
                 <button
                   type="button"
                   onClick={() => toggleFAQ(index)}
@@ -170,11 +173,12 @@ const FAQs = () => {
                     className="
                       text-sm
                       sm:text-base
-                      lg:text-lg
+                      lg:text-[22px]
                       font-bold
                       text-slate-900
                       leading-5
                       sm:leading-6
+                      lg:leading-7
                     "
                   >
                     {faq.question}
@@ -204,6 +208,7 @@ const FAQs = () => {
                 </button>
 
                 {/* ================= Answer ================= */}
+
                 <AnimatePresence initial={false}>
                   {isOpen && (
                     <motion.div
@@ -239,9 +244,11 @@ const FAQs = () => {
                             text-[11px]
                             sm:text-sm
                             md:text-base
+                            lg:text-[18px]
                             text-slate-500
                             leading-5
                             sm:leading-6
+                            lg:leading-7
                           "
                         >
                           {faq.answer}

@@ -72,6 +72,7 @@ const Journey = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
         {/* ================= Heading ================= */}
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -79,24 +80,72 @@ const Journey = () => {
           viewport={{ once: true }}
           className="text-center mb-10 sm:mb-14 lg:mb-16"
         >
-          <span className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-600 text-[10px] sm:text-xs font-medium mb-3 sm:mb-4">
+          <span
+            className="
+              inline-flex
+              items-center
+              gap-1.5
+              sm:gap-2
+              px-2.5
+              sm:px-3
+              py-1
+              rounded-full
+              bg-emerald-50
+              border
+              border-emerald-100
+              text-emerald-600
+              text-[10px]
+              sm:text-xs
+              lg:text-[14px]
+              font-medium
+              mb-3
+              sm:mb-4
+            "
+          >
             <FaRocket className="text-[9px] sm:text-xs" />
             Timeline
           </span>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
-            My <span className="text-emerald-600">Journey</span>
+          <h2
+            className="
+              text-3xl
+              sm:text-4xl
+              lg:text-[28px]
+              font-bold
+            "
+          >
+            My{" "}
+            <span className="text-emerald-600">
+              Journey
+            </span>
           </h2>
 
-          <p className="text-xs sm:text-sm md:text-base text-slate-500 mt-3 sm:mt-4 max-w-xl mx-auto leading-5 sm:leading-6">
+          <p
+            className="
+              text-xs
+              sm:text-sm
+              md:text-base
+              lg:text-[18px]
+              text-slate-500
+              mt-3
+              sm:mt-4
+              max-w-xl
+              mx-auto
+              leading-5
+              sm:leading-6
+              lg:leading-7
+            "
+          >
             My learning path and milestones as a Full Stack Developer.
           </p>
         </motion.div>
 
         {/* ================= Timeline ================= */}
+
         <div className="relative pl-11 sm:pl-16 md:pl-0">
 
           {/* Vertical Line */}
+
           <div
             className="
               absolute
@@ -138,6 +187,7 @@ const Journey = () => {
                 >
 
                   {/* ================= Icon ================= */}
+
                   <div
                     className="
                       absolute
@@ -173,9 +223,11 @@ const Journey = () => {
                   </div>
 
                   {/* Desktop Spacer */}
+
                   <div className="hidden md:block md:w-[calc(50%-1.5rem)]" />
 
                   {/* ================= Card ================= */}
+
                   <div
                     className="
                       relative
@@ -199,26 +251,60 @@ const Journey = () => {
                   >
 
                     {/* Bookmark */}
-                    <div className="absolute -top-1 right-3 sm:right-5 text-emerald-500 text-lg sm:text-2xl">
+
+                    <div
+                      className="
+                        absolute
+                        -top-1
+                        right-3
+                        sm:right-5
+                        text-emerald-500
+                        text-lg
+                        sm:text-2xl
+                      "
+                    >
                       <FaBookmark />
                     </div>
 
                     {/* Dotted Decoration */}
-                    <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 grid grid-cols-3 gap-1 opacity-30 pointer-events-none">
+
+                    <div
+                      className="
+                        absolute
+                        bottom-3
+                        right-3
+                        sm:bottom-4
+                        sm:right-4
+                        grid
+                        grid-cols-3
+                        gap-1
+                        opacity-30
+                        pointer-events-none
+                      "
+                    >
                       {Array.from({ length: 9 }).map((_, i) => (
                         <span
                           key={i}
-                          className="w-0.5 h-0.5 sm:w-1 sm:h-1 rounded-full bg-emerald-400"
+                          className="
+                            w-0.5
+                            h-0.5
+                            sm:w-1
+                            sm:h-1
+                            rounded-full
+                            bg-emerald-400
+                          "
                         />
                       ))}
                     </div>
 
                     {/* ================= Date ================= */}
+
                     <span
                       className="
                         inline-block
                         text-[9px]
                         sm:text-xs
+                        lg:text-[14px]
                         font-semibold
                         tracking-wide
                         uppercase
@@ -237,18 +323,19 @@ const Journey = () => {
                     </span>
 
                     {/* ================= Title ================= */}
-                    {/* No truncate - long titles will wrap */}
+
                     <h3
                       className="
                         text-[11px]
                         sm:text-base
-                        lg:text-lg
+                        lg:text-[22px]
                         font-bold
                         text-slate-900
                         pr-7
                         sm:pr-8
                         leading-4
                         sm:leading-5
+                        lg:leading-7
                         break-words
                       "
                     >
@@ -256,15 +343,17 @@ const Journey = () => {
                     </h3>
 
                     {/* ================= Organization ================= */}
+
                     <p
                       className="
                         text-slate-500
                         text-[9px]
                         sm:text-xs
-                        lg:text-sm
+                        lg:text-[18px]
                         mt-1
                         leading-4
                         sm:leading-5
+                        lg:leading-7
                         break-words
                       "
                     >

@@ -76,7 +76,7 @@ const Projects = () => {
             className="
               text-3xl
               sm:text-4xl
-              lg:text-5xl
+              lg:text-[28px]
               font-bold
               leading-tight
             "
@@ -92,6 +92,7 @@ const Projects = () => {
               text-xs
               sm:text-sm
               md:text-base
+              lg:text-[18px]
               text-slate-500
               mt-3
               sm:mt-4
@@ -99,6 +100,7 @@ const Projects = () => {
               mx-auto
               leading-5
               sm:leading-6
+              lg:leading-7
             "
           >
             Some projects that showcase my skills and experience.
@@ -176,7 +178,7 @@ const Projects = () => {
                   className="
                     text-lg
                     sm:text-xl
-                    lg:text-2xl
+                    lg:text-[22px]
                     font-bold
                     text-slate-900
                   "
@@ -191,10 +193,12 @@ const Projects = () => {
                     text-slate-500
                     text-[11px]
                     sm:text-sm
+                    lg:text-[18px]
                     mt-2
                     sm:mt-3
                     leading-5
                     sm:leading-6
+                    lg:leading-7
                   "
                 >
                   {project.description}
@@ -224,7 +228,7 @@ const Projects = () => {
                         text-emerald-700
                         text-[9px]
                         sm:text-xs
-                        lg:text-sm
+                        lg:text-[14px]
                         font-medium
                       "
                     >
@@ -266,6 +270,7 @@ const Projects = () => {
                         rounded-lg
                         text-xs
                         sm:text-sm
+                        lg:text-base
                         font-semibold
                         hover:bg-emerald-700
                         transition
@@ -303,6 +308,7 @@ const Projects = () => {
                         rounded-lg
                         text-xs
                         sm:text-sm
+                        lg:text-base
                         font-semibold
                         hover:bg-emerald-500
                         hover:text-white

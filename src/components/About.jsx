@@ -132,7 +132,7 @@ const About = () => {
             className="
               text-3xl
               sm:text-4xl
-              lg:text-5xl
+              lg:text-[28px]
               font-bold
             "
           >
@@ -147,6 +147,7 @@ const About = () => {
               text-xs
               sm:text-sm
               md:text-base
+              lg:text-[18px]
               text-slate-500
               mt-3
               sm:mt-4
@@ -154,6 +155,7 @@ const About = () => {
               mx-auto
               leading-5
               sm:leading-6
+              lg:leading-7
             "
           >
             I love creating modern, scalable and user-friendly web
@@ -191,9 +193,11 @@ const About = () => {
                 text-slate-500
                 text-sm
                 md:text-base
+                lg:text-[18px]
                 leading-6
                 sm:leading-7
                 md:leading-8
+                lg:leading-8
               "
             >
               {about.bio}
@@ -232,6 +236,7 @@ const About = () => {
                   className="
                     text-lg
                     sm:text-3xl
+                    lg:text-[22px]
                     font-bold
                     text-emerald-500
                   "
@@ -243,6 +248,7 @@ const About = () => {
                   className="
                     text-[10px]
                     sm:text-sm
+                    lg:text-[14px]
                     text-slate-500
                     mt-1
                     sm:mt-2
@@ -273,6 +279,7 @@ const About = () => {
                   className="
                     text-lg
                     sm:text-3xl
+                    lg:text-[22px]
                     font-bold
                     text-emerald-500
                   "
@@ -284,6 +291,7 @@ const About = () => {
                   className="
                     text-[10px]
                     sm:text-sm
+                    lg:text-[14px]
                     text-slate-500
                     mt-1
                     sm:mt-2
@@ -314,6 +322,7 @@ const About = () => {
                   className="
                     text-lg
                     sm:text-3xl
+                    lg:text-[22px]
                     font-bold
                     text-emerald-500
                   "
@@ -325,6 +334,7 @@ const About = () => {
                   className="
                     text-[10px]
                     sm:text-sm
+                    lg:text-[14px]
                     text-slate-500
                     mt-1
                     sm:mt-2
@@ -397,12 +407,13 @@ const About = () => {
                     className="
                       text-[9px]
                       sm:text-xs
-                      lg:text-sm
+                      lg:text-[14px]
                       text-center
                       font-medium
                       text-slate-700
                       leading-3
                       sm:leading-5
+                      lg:leading-5
                       break-words
                     "
                   >

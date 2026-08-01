@@ -33,6 +33,7 @@ const Footer = () => {
                 sm:block
                 text-2xl
                 sm:text-3xl
+                lg:text-3xl
                 font-bold
                 text-emerald-600
               "
@@ -52,6 +53,7 @@ const Footer = () => {
                 lg:text-base
                 leading-5
                 sm:leading-6
+                lg:leading-7
               "
             >
               Passionate Full Stack Developer creating modern,
@@ -121,6 +123,7 @@ const Footer = () => {
               sm:gap-5
               text-lg
               sm:text-2xl
+              lg:text-2xl
               text-slate-600
             "
           >
@@ -193,7 +196,8 @@ const Footer = () => {
               sm:gap-2
               text-[10px]
               sm:text-sm
-              lg:text-base
+              lg:text-sm
+              leading-6
             "
           >
             <span>

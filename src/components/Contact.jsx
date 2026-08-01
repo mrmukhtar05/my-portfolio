@@ -95,55 +95,71 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="bg-white py-12 sm:py-20 lg:py-24 text-slate-900"
+      className="
+        bg-white
+        py-12
+        sm:py-20
+        lg:py-24
+        text-slate-900
+      "
     >
       <div className="max-w-7xl mx-auto px-3 sm:px-6">
 
         {/* ================= Heading ================= */}
-    <motion.div
-  initial={{ opacity: 0, y: 40 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.7 }}
-  viewport={{ once: true }}
-  className="text-center mb-10 sm:mb-14 lg:mb-16"
->
-  <h2
-    className="
-      text-3xl
-      sm:text-4xl
-      lg:text-5xl
-      font-bold
-      leading-tight
-    "
-  >
-    Contact{" "}
-    <span className="text-emerald-500">
-      Me
-    </span>
-  </h2>
 
-  <p
-    className="
-      text-xs
-      sm:text-sm
-      md:text-base
-      text-slate-500
-      mt-3
-      sm:mt-4
-      max-w-xl
-      mx-auto
-      leading-5
-      sm:leading-6
-    "
-  >
-    Have a project in mind? Let's connect.
-  </p>
-</motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          className="
+            text-center
+            mb-10
+            sm:mb-14
+            lg:mb-16
+          "
+        >
+          <h2
+            className="
+              text-3xl
+              sm:text-4xl
+              lg:text-[28px]
+              font-bold
+              leading-tight
+            "
+          >
+            Contact{" "}
+            <span className="text-emerald-500">
+              Me
+            </span>
+          </h2>
+
+          <p
+            className="
+              text-xs
+              sm:text-sm
+              md:text-base
+              lg:text-[18px]
+              text-slate-500
+              mt-3
+              sm:mt-4
+              max-w-xl
+              mx-auto
+              leading-5
+              sm:leading-6
+              lg:leading-7
+            "
+          >
+            Have a project in mind? Let's connect.
+          </p>
+        </motion.div>
 
         {/* ================= Main Grid ================= */}
+
         <div className="grid lg:grid-cols-2 gap-7 sm:gap-10 lg:gap-12">
 
           {/* ================= Left Side ================= */}
+
           <motion.div
             initial={{ opacity: 0, x: -60 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -161,6 +177,7 @@ const Contact = () => {
           >
 
             {/* ================= Email ================= */}
+
             <div
               className="
                 flex
@@ -197,17 +214,38 @@ const Contact = () => {
               />
 
               <div className="min-w-0 w-full">
-                <h3 className="font-bold text-[8px] sm:text-sm lg:text-base text-slate-900">
+                <h3
+                  className="
+                    font-bold
+                    text-[8px]
+                    sm:text-sm
+                    lg:text-[18px]
+                    text-slate-900
+                  "
+                >
                   Email
                 </h3>
 
-                <p className="text-[7px] sm:text-xs lg:text-sm text-slate-500 mt-0.5 break-all leading-3 sm:leading-5">
+                <p
+                  className="
+                    text-[7px]
+                    sm:text-xs
+                    lg:text-[16px]
+                    text-slate-500
+                    mt-0.5
+                    break-all
+                    leading-3
+                    sm:leading-5
+                    lg:leading-6
+                  "
+                >
                   {about.email}
                 </p>
               </div>
             </div>
 
             {/* ================= Phone ================= */}
+
             <div
               className="
                 flex
@@ -244,17 +282,38 @@ const Contact = () => {
               />
 
               <div className="min-w-0 w-full">
-                <h3 className="font-bold text-[8px] sm:text-sm lg:text-base text-slate-900">
+                <h3
+                  className="
+                    font-bold
+                    text-[8px]
+                    sm:text-sm
+                    lg:text-[18px]
+                    text-slate-900
+                  "
+                >
                   Phone
                 </h3>
 
-                <p className="text-[7px] sm:text-xs lg:text-sm text-slate-500 mt-0.5 break-words leading-3 sm:leading-5">
+                <p
+                  className="
+                    text-[7px]
+                    sm:text-xs
+                    lg:text-[16px]
+                    text-slate-500
+                    mt-0.5
+                    break-words
+                    leading-3
+                    sm:leading-5
+                    lg:leading-6
+                  "
+                >
                   {about.phone}
                 </p>
               </div>
             </div>
 
             {/* ================= Location ================= */}
+
             <div
               className="
                 flex
@@ -291,11 +350,31 @@ const Contact = () => {
               />
 
               <div className="min-w-0 w-full">
-                <h3 className="font-bold text-[8px] sm:text-sm lg:text-base text-slate-900">
+                <h3
+                  className="
+                    font-bold
+                    text-[8px]
+                    sm:text-sm
+                    lg:text-[18px]
+                    text-slate-900
+                  "
+                >
                   Location
                 </h3>
 
-                <p className="text-[7px] sm:text-xs lg:text-sm text-slate-500 mt-0.5 break-words leading-3 sm:leading-5">
+                <p
+                  className="
+                    text-[7px]
+                    sm:text-xs
+                    lg:text-[16px]
+                    text-slate-500
+                    mt-0.5
+                    break-words
+                    leading-3
+                    sm:leading-5
+                    lg:leading-6
+                  "
+                >
                   {about.location}
                 </p>
               </div>
@@ -304,6 +383,7 @@ const Contact = () => {
           </motion.div>
 
           {/* ================= Right Side ================= */}
+
           <motion.form
             onSubmit={handleSubmit}
             initial={{ opacity: 0, x: 60 }}
@@ -326,6 +406,7 @@ const Contact = () => {
           >
 
             {/* Name */}
+
             <input
               type="text"
               name="name"
@@ -344,7 +425,7 @@ const Contact = () => {
                 border-slate-200
                 text-[9px]
                 sm:text-sm
-                lg:text-base
+                lg:text-[16px]
                 text-slate-900
                 placeholder:text-slate-400
                 outline-none
@@ -353,6 +434,7 @@ const Contact = () => {
             />
 
             {/* Email */}
+
             <input
               type="email"
               name="email"
@@ -371,7 +453,7 @@ const Contact = () => {
                 border-slate-200
                 text-[9px]
                 sm:text-sm
-                lg:text-base
+                lg:text-[16px]
                 text-slate-900
                 placeholder:text-slate-400
                 outline-none
@@ -380,6 +462,7 @@ const Contact = () => {
             />
 
             {/* Subject */}
+
             <input
               type="text"
               name="subject"
@@ -398,7 +481,7 @@ const Contact = () => {
                 border-slate-200
                 text-[9px]
                 sm:text-sm
-                lg:text-base
+                lg:text-[16px]
                 text-slate-900
                 placeholder:text-slate-400
                 outline-none
@@ -407,6 +490,7 @@ const Contact = () => {
             />
 
             {/* Message */}
+
             <textarea
               rows="5"
               name="message"
@@ -425,7 +509,7 @@ const Contact = () => {
                 border-slate-200
                 text-[9px]
                 sm:text-sm
-                lg:text-base
+                lg:text-[16px]
                 text-slate-900
                 placeholder:text-slate-400
                 outline-none
@@ -435,20 +519,37 @@ const Contact = () => {
             />
 
             {/* Error */}
+
             {status.state === "error" && (
-              <p className="text-red-500 text-[9px] sm:text-sm">
+              <p
+                className="
+                  text-red-500
+                  text-[9px]
+                  sm:text-sm
+                  lg:text-[14px]
+                "
+              >
                 {status.message}
               </p>
             )}
 
             {/* Success */}
+
             {status.state === "success" && (
-              <p className="text-emerald-600 text-[9px] sm:text-sm">
+              <p
+                className="
+                  text-emerald-600
+                  text-[9px]
+                  sm:text-sm
+                  lg:text-[14px]
+                "
+              >
                 {status.message}
               </p>
             )}
 
             {/* Submit */}
+
             <button
               type="submit"
               disabled={status.state === "loading"}
@@ -464,7 +565,7 @@ const Contact = () => {
                 sm:rounded-lg
                 text-[9px]
                 sm:text-sm
-                lg:text-base
+                lg:text-[16px]
                 font-bold
                 transition
                 disabled:opacity-60
