@@ -240,7 +240,7 @@ const Hero = () => {
                 text-3xl
                 sm:text-5xl
                 md:text-6xl
-                lg:text-7xl
+                lg:text-[40px]
                 font-extrabold
                 leading-[1.05]
                 tracking-tight
@@ -273,6 +273,7 @@ const Hero = () => {
                 text-lg
                 sm:text-xl
                 md:text-2xl
+                lg:text-[22px]
                 font-semibold
                 text-slate-700
                 min-h-[30px]
@@ -304,6 +305,7 @@ const Hero = () => {
                 text-left
                 text-[11px]
                 sm:text-base
+                lg:text-[18px]
                 text-slate-500
                 leading-5
                 sm:leading-7
@@ -343,6 +345,7 @@ const Hero = () => {
                   hover:bg-emerald-700
                   text-white
                   text-sm
+                  lg:text-base
                   font-semibold
                   shadow-sm
                   transition-all
@@ -374,6 +377,7 @@ const Hero = () => {
                   hover:bg-emerald-50
                   text-slate-800
                   text-sm
+                  lg:text-base
                   font-semibold
                   border
                   border-emerald-300
