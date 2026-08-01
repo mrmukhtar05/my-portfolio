@@ -193,7 +193,7 @@ const Hero = () => {
             grid
             grid-cols-1
             lg:grid-cols-2
-            gap-12
+            gap-10
             sm:gap-16
             lg:gap-20
             items-center
@@ -301,7 +301,8 @@ const Hero = () => {
                 max-w-xl
                 mx-auto
                 lg:mx-0
-                text-xs
+                text-left
+                text-[11px]
                 sm:text-base
                 text-slate-500
                 leading-5
@@ -325,6 +326,7 @@ const Hero = () => {
                 sm:mt-8
               "
             >
+              {/* View Projects */}
               <a
                 href="#projects"
                 className="
@@ -352,21 +354,12 @@ const Hero = () => {
                 <FaArrowRight className="text-xs" />
               </a>
 
+              {/* Resume */}
               <a
-                href={
-                  about.resume
-                    ? getImageUrl(about.resume)
-                    : resume
-                }
+                href={about.resume ? getImageUrl(about.resume) : resume}
                 download="Resume.pdf"
-                target={
-                  about.resume ? "_blank" : undefined
-                }
-                rel={
-                  about.resume
-                    ? "noreferrer"
-                    : undefined
-                }
+                target={about.resume ? "_blank" : undefined}
+                rel={about.resume ? "noreferrer" : undefined}
                 className="
                   inline-flex
                   items-center
@@ -408,6 +401,7 @@ const Hero = () => {
                 sm:mt-8
               "
             >
+              {/* GitHub */}
               {about.socialLinks?.github && (
                 <a
                   href={about.socialLinks.github}
@@ -435,6 +429,7 @@ const Hero = () => {
                 </a>
               )}
 
+              {/* LinkedIn */}
               {about.socialLinks?.linkedin && (
                 <a
                   href={about.socialLinks.linkedin}
@@ -462,6 +457,7 @@ const Hero = () => {
                 </a>
               )}
 
+              {/* Email */}
               {about.email && (
                 <a
                   href={`mailto:${about.email}`}
@@ -506,8 +502,16 @@ const Hero = () => {
               items-center
             "
           >
-            <div className="relative w-full sm:w-auto px-4 sm:px-0">
-              {/* Offset Green Background Card */}
+            <div
+              className="
+                relative
+                w-full
+                sm:w-auto
+                px-4
+                sm:px-0
+              "
+            >
+              {/* Offset Green Background */}
               <div
                 className="
                   absolute
@@ -520,8 +524,6 @@ const Hero = () => {
                   sm:translate-y-3
                   md:translate-x-4
                   md:translate-y-4
-                  rounded-2xl
-                  sm:rounded-[2rem]
                   bg-emerald-100
                 "
               />
@@ -530,8 +532,6 @@ const Hero = () => {
               <div
                 className="
                   relative
-                  rounded-2xl
-                  sm:rounded-[2rem]
                   overflow-hidden
                   bg-white
                   shadow-xl
@@ -541,15 +541,13 @@ const Hero = () => {
                 <img
                   src={
                     about.profileImage
-                      ? getImageUrl(
-                          about.profileImage
-                        )
+                      ? getImageUrl(about.profileImage)
                       : profileImg
                   }
                   alt={about.name}
                   className="
                     w-full
-                    h-[28rem]
+                    h-[25rem]
                     sm:w-64
                     sm:h-80
                     md:w-80
@@ -560,7 +558,6 @@ const Hero = () => {
                   "
                 />
               </div>
-
             </div>
           </motion.div>
         </div>

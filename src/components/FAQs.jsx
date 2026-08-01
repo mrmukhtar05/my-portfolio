@@ -1,39 +1,39 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaChevronDown } from "react-icons/fa";
+import { FaPlus, FaMinus } from "react-icons/fa";
 import { getFAQs } from "../services/faqService";
 
 const FALLBACK_FAQS = [
   {
-    question: "Who are you?",
+    question: "What technologies do you work with?",
     answer:
-      "I'm Mukhtar Shah, a Full Stack Developer passionate about building modern and scalable web applications.",
+      "I mainly work with React.js, Node.js, Express.js, MongoDB, JavaScript, Tailwind CSS and other modern web technologies.",
   },
   {
-    question: "Which technologies do you work with?",
+    question: "Are you available for freelance projects?",
     answer:
-      "I mainly work with React.js, Node.js, Express.js, MongoDB, JavaScript, Tailwind CSS, and Bootstrap.",
+      "Yes, I am available for freelance and full-stack development projects depending on the requirements.",
   },
   {
-    question: "Are you available for freelance or internships?",
+    question: "Can you build a complete full-stack application?",
     answer:
-      "Yes! I'm open to internships, freelance projects, and full-time opportunities.",
+      "Yes. I can build complete full-stack applications including frontend, backend, database integration, authentication and deployment.",
+  },
+  {
+    question: "Do you create responsive websites?",
+    answer:
+      "Yes. I build responsive websites that work smoothly across mobile, tablet, laptop and desktop devices.",
   },
   {
     question: "How can I contact you?",
     answer:
-      "You can contact me through the Contact section, email, or LinkedIn.",
-  },
-  {
-    question: "Do you build responsive websites?",
-    answer:
-      "Yes. Every project I build is fully responsive and works smoothly on desktop, tablet, and mobile devices.",
+      "You can contact me through the contact section, email, GitHub or LinkedIn.",
   },
 ];
 
 const FAQs = () => {
   const [faqs, setFaqs] = useState(FALLBACK_FAQS);
-  const [active, setActive] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(null);
 
   useEffect(() => {
     getFAQs()
@@ -42,157 +42,218 @@ const FAQs = () => {
           setFaqs(res.data);
         }
       })
-      .catch(() => {});
+      .catch(() => {
+        // Keep fallback FAQs
+      });
   }, []);
 
-  const toggle = (index) => {
-    setActive(active === index ? null : index);
+  const toggleFAQ = (index) => {
+    setActiveIndex(
+      activeIndex === index ? null : index
+    );
   };
 
   return (
     <section
       id="faqs"
-      className="bg-white py-12 sm:py-20 lg:py-24 text-slate-900"
+      className="
+        py-14
+        sm:py-20
+        lg:py-24
+        bg-white
+        text-slate-900
+      "
     >
-      <div className="max-w-4xl mx-auto px-3 sm:px-6">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
 
-        {/* Heading */}
+        {/* ================= Heading ================= */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="text-center mb-8 sm:mb-14 lg:mb-16"
+          className="
+            text-center
+            mb-10
+            sm:mb-14
+            lg:mb-16
+          "
         >
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+          <h2
+            className="
+              text-3xl
+              sm:text-4xl
+              lg:text-5xl
+              font-bold
+            "
+          >
             Frequently Asked{" "}
-            <span className="text-emerald-600">
+            <span className="text-emerald-500">
               Questions
             </span>
           </h2>
 
-          <p className="text-[9px] sm:text-sm lg:text-base text-slate-500 mt-2 sm:mt-4 leading-4 sm:leading-6">
-            Here are some common questions about me and my work.
+          <p
+            className="
+              text-xs
+              sm:text-sm
+              md:text-base
+              text-slate-500
+              mt-3
+              sm:mt-4
+              max-w-xl
+              mx-auto
+              leading-5
+              sm:leading-6
+            "
+          >
+            Find answers to some common questions about my
+            skills, projects and development services.
           </p>
         </motion.div>
 
-        {/* FAQ */}
-        <div className="space-y-2 sm:space-y-4">
+        {/* ================= FAQ List ================= */}
+        <div className="space-y-3 sm:space-y-4 lg:space-y-5">
 
-          {faqs.map((faq, index) => (
-            <motion.div
-              key={faq._id || index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.4,
-                delay: index * 0.05,
-              }}
-              viewport={{ once: true }}
-              className="
-                bg-slate-50
-                border
-                border-slate-200
-                rounded-md
-                sm:rounded-xl
-                overflow-hidden
-                hover:border-emerald-400
-                transition-colors
-                duration-300
-              "
-            >
+          {faqs.map((faq, index) => {
+            const isOpen = activeIndex === index;
 
-              {/* Question */}
-              <button
-                onClick={() => toggle(index)}
+            return (
+              <motion.div
+                key={faq._id || index}
+                initial={{
+                  opacity: 0,
+                  y: 30,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.08,
+                }}
+                viewport={{ once: true }}
                 className="
-                  w-full
-                  flex
-                  justify-between
-                  items-center
-                  text-left
-                  px-2.5
-                  py-2.5
-                  sm:px-5
-                  sm:py-4
+                  bg-slate-50
+                  border
+                  border-slate-200
+                  rounded-xl
+                  sm:rounded-2xl
+                  overflow-hidden
+                  hover:border-emerald-400
+                  transition-all
+                  duration-300
                 "
               >
-                <h3
+
+                {/* ================= Question ================= */}
+                <button
+                  type="button"
+                  onClick={() => toggleFAQ(index)}
                   className="
-                    text-[9px]
-                    sm:text-sm
-                    lg:text-base
-                    font-semibold
-                    text-slate-900
-                    leading-3.5
-                    sm:leading-5
-                    pr-2
-                    break-words
+                    w-full
+                    flex
+                    items-center
+                    justify-between
+                    gap-3
+                    text-left
+                    px-4
+                    py-4
+                    sm:px-5
+                    sm:py-5
+                    lg:px-6
+                    lg:py-6
                   "
                 >
-                  {faq.question}
-                </h3>
-
-                <FaChevronDown
-                  className={`
-                    text-[8px]
-                    sm:text-xs
-                    flex-shrink-0
-                    ml-2
-                    transition-transform
-                    duration-300
-                    ${
-                      active === index
-                        ? "rotate-180 text-emerald-600"
-                        : "text-slate-400"
-                    }
-                  `}
-                />
-              </button>
-
-              {/* Answer */}
-              <AnimatePresence>
-                {active === index && (
-                  <motion.div
-                    initial={{
-                      height: 0,
-                      opacity: 0,
-                    }}
-                    animate={{
-                      height: "auto",
-                      opacity: 1,
-                    }}
-                    exit={{
-                      height: 0,
-                      opacity: 0,
-                    }}
-                    transition={{
-                      duration: 0.3,
-                    }}
+                  <span
+                    className="
+                      text-sm
+                      sm:text-base
+                      lg:text-lg
+                      font-bold
+                      text-slate-900
+                      leading-5
+                      sm:leading-6
+                    "
                   >
-                    <p
-                      className="
-                        px-2.5
-                        pb-2.5
-                        sm:px-5
-                        sm:pb-4
-                        text-[8px]
-                        sm:text-xs
-                        lg:text-sm
-                        text-slate-500
-                        leading-3.5
-                        sm:leading-5
-                        break-words
-                      "
-                    >
-                      {faq.answer}
-                    </p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                    {faq.question}
+                  </span>
 
-            </motion.div>
-          ))}
+                  <span
+                    className="
+                      shrink-0
+                      w-7
+                      h-7
+                      sm:w-8
+                      sm:h-8
+                      flex
+                      items-center
+                      justify-center
+                      rounded-lg
+                      bg-emerald-100
+                      text-emerald-600
+                    "
+                  >
+                    {isOpen ? (
+                      <FaMinus className="text-[10px] sm:text-xs" />
+                    ) : (
+                      <FaPlus className="text-[10px] sm:text-xs" />
+                    )}
+                  </span>
+                </button>
+
+                {/* ================= Answer ================= */}
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{
+                        height: 0,
+                        opacity: 0,
+                      }}
+                      animate={{
+                        height: "auto",
+                        opacity: 1,
+                      }}
+                      exit={{
+                        height: 0,
+                        opacity: 0,
+                      }}
+                      transition={{
+                        duration: 0.3,
+                      }}
+                      className="overflow-hidden"
+                    >
+                      <div
+                        className="
+                          px-4
+                          pb-4
+                          sm:px-5
+                          sm:pb-5
+                          lg:px-6
+                          lg:pb-6
+                        "
+                      >
+                        <p
+                          className="
+                            text-[11px]
+                            sm:text-sm
+                            md:text-base
+                            text-slate-500
+                            leading-5
+                            sm:leading-6
+                          "
+                        >
+                          {faq.answer}
+                        </p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+              </motion.div>
+            );
+          })}
 
         </div>
       </div>

@@ -100,24 +100,45 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto px-3 sm:px-6">
 
         {/* ================= Heading ================= */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
-          className="text-center mb-9 sm:mb-14 lg:mb-16"
-        >
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-            Contact{" "}
-            <span className="text-emerald-600">
-              Me
-            </span>
-          </h2>
+    <motion.div
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.7 }}
+  viewport={{ once: true }}
+  className="text-center mb-10 sm:mb-14 lg:mb-16"
+>
+  <h2
+    className="
+      text-3xl
+      sm:text-4xl
+      lg:text-5xl
+      font-bold
+      leading-tight
+    "
+  >
+    Contact{" "}
+    <span className="text-emerald-500">
+      Me
+    </span>
+  </h2>
 
-          <p className="text-[9px] sm:text-sm lg:text-base text-slate-500 mt-2 sm:mt-4 leading-4 sm:leading-6">
-            Have a project in mind? Let's connect.
-          </p>
-        </motion.div>
+  <p
+    className="
+      text-xs
+      sm:text-sm
+      md:text-base
+      text-slate-500
+      mt-3
+      sm:mt-4
+      max-w-xl
+      mx-auto
+      leading-5
+      sm:leading-6
+    "
+  >
+    Have a project in mind? Let's connect.
+  </p>
+</motion.div>
 
         {/* ================= Main Grid ================= */}
         <div className="grid lg:grid-cols-2 gap-7 sm:gap-10 lg:gap-12">

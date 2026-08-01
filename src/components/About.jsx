@@ -10,6 +10,7 @@ import {
   FaCss3Alt,
   FaCode,
 } from "react-icons/fa";
+
 import {
   SiMongodb,
   SiExpress,
@@ -24,6 +25,7 @@ import { getSkills } from "../services/skillService";
 import { getProjects } from "../services/projectService";
 
 // ================= Skill Icons =================
+
 const ICON_MAP = {
   react: <FaReact />,
   "node.js": <FaNodeJs />,
@@ -45,11 +47,13 @@ const ICON_MAP = {
 };
 
 // ================= Get Skill Icon =================
+
 const getIconForSkill = (name = "") => {
   return ICON_MAP[name.toLowerCase()] || <FaCode />;
 };
 
 // ================= Default Skills =================
+
 const DEFAULT_SKILLS = [
   { name: "React" },
   { name: "Node.js" },
@@ -72,6 +76,7 @@ const About = () => {
 
   useEffect(() => {
     // ================= About =================
+
     getAbout()
       .then((res) => {
         if (res?.data) {
@@ -84,6 +89,7 @@ const About = () => {
       .catch(() => {});
 
     // ================= Skills =================
+
     getSkills()
       .then((res) => {
         if (res?.data?.length) {
@@ -93,6 +99,7 @@ const About = () => {
       .catch(() => {});
 
     // ================= Projects =================
+
     getProjects()
       .then((res) => {
         if (res?.data?.length) {
@@ -118,6 +125,7 @@ const About = () => {
       <div className="max-w-7xl mx-auto">
 
         {/* ================= Heading ================= */}
+
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -133,10 +141,11 @@ const About = () => {
           <h2
             className="
               text-2xl
-              sm:text-4xl
+              sm:text-5xl
               lg:text-5xl
-              font-bold
+              font-extrabold
               leading-tight
+              tracking-tight
             "
           >
             About{" "}
@@ -147,16 +156,15 @@ const About = () => {
 
           <p
             className="
-              text-[9px]
-              sm:text-sm
-              lg:text-base
+              text-[10px]
+              sm:text-base
               text-slate-500
               mt-2
               sm:mt-4
               max-w-2xl
               mx-auto
               leading-4
-              sm:leading-6
+              sm:leading-7
             "
           >
             I love creating modern, scalable and user-friendly web
@@ -165,6 +173,7 @@ const About = () => {
         </motion.div>
 
         {/* ================= Main Content ================= */}
+
         <div
           className="
             grid
@@ -177,6 +186,7 @@ const About = () => {
         >
 
           {/* ================= Left Side ================= */}
+
           <motion.div
             initial={{ opacity: 0, x: -70 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -184,17 +194,17 @@ const About = () => {
             viewport={{ once: true }}
           >
 
-            {/* Bio
-                Hidden completely on small screen */}
+            {/* ================= Bio ================= */}
+
             <p
               className="
                 hidden
                 sm:block
+                text-left
                 text-slate-500
                 text-sm
                 md:text-base
-                leading-6
-                sm:leading-7
+                leading-7
                 md:leading-8
               "
             >
@@ -202,6 +212,7 @@ const About = () => {
             </p>
 
             {/* ================= Stats ================= */}
+
             <div
               className="
                 grid
@@ -214,6 +225,7 @@ const About = () => {
             >
 
               {/* Projects */}
+
               <div
                 className="
                   bg-slate-50
@@ -255,6 +267,7 @@ const About = () => {
               </div>
 
               {/* Technologies */}
+
               <div
                 className="
                   bg-slate-50
@@ -296,6 +309,7 @@ const About = () => {
               </div>
 
               {/* Dedication */}
+
               <div
                 className="
                   bg-slate-50
@@ -340,6 +354,7 @@ const About = () => {
           </motion.div>
 
           {/* ================= Right Side ================= */}
+
           <motion.div
             initial={{ opacity: 0, x: 70 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -381,6 +396,7 @@ const About = () => {
                 >
 
                   {/* Icon */}
+
                   <div
                     className="
                       text-base
@@ -395,6 +411,7 @@ const About = () => {
                   </div>
 
                   {/* Skill Name */}
+
                   <p
                     className="
                       text-[7px]

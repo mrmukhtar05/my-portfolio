@@ -8,9 +8,9 @@ import {
 const Footer = () => {
   return (
     <footer className="border-t border-emerald-100 bg-white">
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-7 sm:py-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-7 sm:py-10">
 
-        {/* Main Footer */}
+        {/* ================= Main Footer ================= */}
         <div
           className="
             flex
@@ -24,26 +24,34 @@ const Footer = () => {
           "
         >
 
-          {/* Logo / About */}
+          {/* ================= Logo / About ================= */}
           <div className="text-center lg:text-left">
 
-            {/* MS hidden on small screen */}
-            <h2 className="hidden sm:block text-3xl font-bold text-emerald-600">
+            <h2
+              className="
+                hidden
+                sm:block
+                text-2xl
+                sm:text-3xl
+                font-bold
+                text-emerald-600
+              "
+            >
               MS
             </h2>
 
             <p
               className="
-                text-gray-600
+                text-slate-500
                 mt-1.5
                 sm:mt-2
                 max-w-xs
                 sm:max-w-sm
-                text-[9px]
+                text-[11px]
                 sm:text-sm
                 lg:text-base
-                leading-4
-                sm:leading-relaxed
+                leading-5
+                sm:leading-6
               "
             >
               Passionate Full Stack Developer creating modern,
@@ -52,7 +60,7 @@ const Footer = () => {
 
           </div>
 
-          {/* Navigation */}
+          {/* ================= Navigation ================= */}
           <div
             className="
               flex
@@ -62,70 +70,50 @@ const Footer = () => {
               gap-y-2
               sm:gap-x-6
               sm:gap-y-3
-              text-gray-600
+              text-slate-600
               font-bold
-              text-[9px]
+              text-[11px]
               sm:text-sm
               lg:text-base
             "
           >
             <a
               href="#home"
-              className="
-                hover:text-emerald-600
-                transition-colors
-                duration-300
-              "
+              className="hover:text-emerald-600 transition-colors duration-300"
             >
               Home
             </a>
 
             <a
               href="#about"
-              className="
-                hover:text-emerald-600
-                transition-colors
-                duration-300
-              "
+              className="hover:text-emerald-600 transition-colors duration-300"
             >
               About
             </a>
 
             <a
               href="#projects"
-              className="
-                hover:text-emerald-600
-                transition-colors
-                duration-300
-              "
+              className="hover:text-emerald-600 transition-colors duration-300"
             >
               Projects
             </a>
 
             <a
               href="#journey"
-              className="
-                hover:text-emerald-600
-                transition-colors
-                duration-300
-              "
+              className="hover:text-emerald-600 transition-colors duration-300"
             >
               Journey
             </a>
 
             <a
               href="#contact"
-              className="
-                hover:text-emerald-600
-                transition-colors
-                duration-300
-              "
+              className="hover:text-emerald-600 transition-colors duration-300"
             >
               Contact
             </a>
           </div>
 
-          {/* Social Icons */}
+          {/* ================= Social Icons ================= */}
           <div
             className="
               flex
@@ -133,7 +121,7 @@ const Footer = () => {
               sm:gap-5
               text-lg
               sm:text-2xl
-              text-gray-600
+              text-slate-600
             "
           >
             <a
@@ -182,7 +170,7 @@ const Footer = () => {
 
         </div>
 
-        {/* Bottom */}
+        {/* ================= Bottom ================= */}
         <div
           className="
             border-t
@@ -192,7 +180,7 @@ const Footer = () => {
             pt-4
             sm:pt-6
             text-center
-            text-gray-500
+            text-slate-500
           "
         >
           <p
@@ -203,7 +191,7 @@ const Footer = () => {
               items-center
               gap-1.5
               sm:gap-2
-              text-[8px]
+              text-[10px]
               sm:text-sm
               lg:text-base
             "
@@ -214,7 +202,7 @@ const Footer = () => {
 
             <span className="flex items-center gap-1">
               Made with
-              <FaHeart className="text-emerald-600 text-[8px] sm:text-sm" />
+              <FaHeart className="text-emerald-600 text-[9px] sm:text-sm" />
             </span>
 
             <span>
