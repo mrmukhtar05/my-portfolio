@@ -26,8 +26,29 @@ const Cursor = () => {
   });
 
   const [hover, setHover] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
+    // Only show custom cursor on devices with a real mouse
+    // (fine pointer) — this excludes phones and tablets.
+    const mediaQuery = window.matchMedia(
+      "(pointer: fine) and (hover: hover)"
+    );
+
+    setIsDesktop(mediaQuery.matches);
+
+    const handleChange = (e) => setIsDesktop(e.matches);
+
+    mediaQuery.addEventListener("change", handleChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleChange);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isDesktop) return;
+
     const move = (e) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
@@ -55,34 +76,32 @@ const Cursor = () => {
         el.removeEventListener("mouseleave", leave);
       });
     };
-  }, []);
+  }, [isDesktop]);
+
+  if (!isDesktop) return null;
 
   return (
     <>
       {/* Ring */}
       <motion.div
-        style={{
-          x: ringX,
-          y: ringY,
-        }}
         animate={{
-          width: hover ? 60 : 35,
-          height: hover ? 60 : 35,
-          borderColor: hover ? "#22d3ee" : "#67e8f9",
+          width: hover ? 44 : 24,
+          height: hover ? 44 : 24,
+          borderColor: "var(--color-emerald-600)",
           backgroundColor: hover
-            ? "rgba(34,211,238,.15)"
-            : "rgba(34,211,238,.05)",
+            ? "color-mix(in srgb, var(--color-emerald-600) 15%, transparent)"
+            : "color-mix(in srgb, var(--color-emerald-600) 5%, transparent)",
         }}
         transition={{
           duration: 0.2,
         }}
-        className="fixed top-0 left-0 rounded-full border pointer-events-none z-[9998]"
         style={{
           x: ringX,
           y: ringY,
           translateX: "-50%",
           translateY: "-50%",
         }}
+        className="fixed top-0 left-0 rounded-full border pointer-events-none z-[9998]"
       />
 
       {/* Dot */}
@@ -92,8 +111,10 @@ const Cursor = () => {
           y: dotY,
           translateX: "-50%",
           translateY: "-50%",
+          backgroundColor: "var(--color-emerald-600)",
+          boxShadow: "0 0 10px var(--color-emerald-600)",
         }}
-        className="fixed top-0 left-0 w-2.5 h-2.5 rounded-full bg-cyan-400 pointer-events-none z-[9999] shadow-[0_0_15px_#22d3ee]"
+        className="fixed top-0 left-0 w-1.5 h-1.5 rounded-full pointer-events-none z-[9999]"
       />
     </>
   );
