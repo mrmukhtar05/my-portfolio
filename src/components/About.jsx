@@ -23,7 +23,7 @@ import { getAbout } from "../services/aboutService";
 import { getSkills } from "../services/skillService";
 import { getProjects } from "../services/projectService";
 
-// Skill icons
+// ================= Skill Icons =================
 const ICON_MAP = {
   react: <FaReact />,
   "node.js": <FaNodeJs />,
@@ -44,12 +44,12 @@ const ICON_MAP = {
   typescript: <SiTypescript />,
 };
 
-// Get icon based on skill name
+// ================= Get Skill Icon =================
 const getIconForSkill = (name = "") => {
   return ICON_MAP[name.toLowerCase()] || <FaCode />;
 };
 
-// Default skills
+// ================= Default Skills =================
 const DEFAULT_SKILLS = [
   { name: "React" },
   { name: "Node.js" },
@@ -71,7 +71,7 @@ const About = () => {
   const [projectCount, setProjectCount] = useState(10);
 
   useEffect(() => {
-    // About
+    // ================= About =================
     getAbout()
       .then((res) => {
         if (res?.data) {
@@ -83,7 +83,7 @@ const About = () => {
       })
       .catch(() => {});
 
-    // Skills
+    // ================= Skills =================
     getSkills()
       .then((res) => {
         if (res?.data?.length) {
@@ -92,7 +92,7 @@ const About = () => {
       })
       .catch(() => {});
 
-    // Projects
+    // ================= Projects =================
     getProjects()
       .then((res) => {
         if (res?.data?.length) {
@@ -105,7 +105,15 @@ const About = () => {
   return (
     <section
       id="about"
-      className="bg-white text-slate-900 py-16 sm:py-20 lg:py-24 px-4 sm:px-6"
+      className="
+        bg-white
+        text-slate-900
+        py-12
+        sm:py-20
+        lg:py-24
+        px-3
+        sm:px-6
+      "
     >
       <div className="max-w-7xl mx-auto">
 
@@ -115,23 +123,58 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="text-center mb-12 sm:mb-16 lg:mb-20"
+          className="
+            text-center
+            mb-9
+            sm:mb-16
+            lg:mb-20
+          "
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
+          <h2
+            className="
+              text-2xl
+              sm:text-4xl
+              lg:text-5xl
+              font-bold
+              leading-tight
+            "
+          >
             About{" "}
             <span className="text-emerald-500">
               Me
             </span>
           </h2>
 
-          <p className="text-sm sm:text-base text-slate-500 mt-3 sm:mt-4 max-w-2xl mx-auto leading-6">
+          <p
+            className="
+              text-[9px]
+              sm:text-sm
+              lg:text-base
+              text-slate-500
+              mt-2
+              sm:mt-4
+              max-w-2xl
+              mx-auto
+              leading-4
+              sm:leading-6
+            "
+          >
             I love creating modern, scalable and user-friendly web
             applications with clean code and beautiful UI.
           </p>
         </motion.div>
 
         {/* ================= Main Content ================= */}
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div
+          className="
+            grid
+            lg:grid-cols-2
+            gap-7
+            sm:gap-10
+            lg:gap-16
+            items-center
+          "
+        >
 
           {/* ================= Left Side ================= */}
           <motion.div
@@ -140,51 +183,155 @@ const About = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            {/* Title */}
-            <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">
-              Hi, I'm{" "}
-              <span className="text-emerald-500">
-                {about.name}
-              </span>
-            </h3>
 
-            {/* Bio */}
-            <p className="text-slate-500 text-xs sm:text-sm md:text-base leading-6 sm:leading-7 md:leading-8">
+            {/* Bio
+                Hidden completely on small screen */}
+            <p
+              className="
+                hidden
+                sm:block
+                text-slate-500
+                text-sm
+                md:text-base
+                leading-6
+                sm:leading-7
+                md:leading-8
+              "
+            >
               {about.bio}
             </p>
 
             {/* ================= Stats ================= */}
-            <div className="grid grid-cols-3 gap-2 sm:gap-4 mt-7 sm:mt-10">
+            <div
+              className="
+                grid
+                grid-cols-3
+                gap-1.5
+                sm:gap-4
+                mt-2
+                sm:mt-10
+              "
+            >
 
               {/* Projects */}
-              <div className="bg-slate-50 rounded-xl sm:rounded-2xl p-3 sm:p-6 text-center border border-emerald-500/20 hover:border-emerald-400 hover:-translate-y-1 transition duration-300">
-                <h3 className="text-xl sm:text-3xl font-bold text-emerald-500">
+              <div
+                className="
+                  bg-slate-50
+                  rounded-lg
+                  sm:rounded-2xl
+                  p-2
+                  sm:p-6
+                  text-center
+                  border
+                  border-emerald-500/20
+                  hover:border-emerald-400
+                  hover:-translate-y-1
+                  transition
+                  duration-300
+                "
+              >
+                <h3
+                  className="
+                    text-lg
+                    sm:text-3xl
+                    font-bold
+                    text-emerald-500
+                  "
+                >
                   {projectCount}+
                 </h3>
 
-                <p className="text-[10px] sm:text-sm text-slate-500 mt-1 sm:mt-2">
+                <p
+                  className="
+                    text-[8px]
+                    sm:text-sm
+                    text-slate-500
+                    mt-1
+                    sm:mt-2
+                  "
+                >
                   Projects
                 </p>
               </div>
 
               {/* Technologies */}
-              <div className="bg-slate-50 rounded-xl sm:rounded-2xl p-3 sm:p-6 text-center border border-emerald-500/20 hover:border-emerald-400 hover:-translate-y-1 transition duration-300">
-                <h3 className="text-xl sm:text-3xl font-bold text-emerald-500">
+              <div
+                className="
+                  bg-slate-50
+                  rounded-lg
+                  sm:rounded-2xl
+                  p-2
+                  sm:p-6
+                  text-center
+                  border
+                  border-emerald-500/20
+                  hover:border-emerald-400
+                  hover:-translate-y-1
+                  transition
+                  duration-300
+                "
+              >
+                <h3
+                  className="
+                    text-lg
+                    sm:text-3xl
+                    font-bold
+                    text-emerald-500
+                  "
+                >
                   {skills.length}+
                 </h3>
 
-                <p className="text-[10px] sm:text-sm text-slate-500 mt-1 sm:mt-2">
+                <p
+                  className="
+                    text-[8px]
+                    sm:text-sm
+                    text-slate-500
+                    mt-1
+                    sm:mt-2
+                  "
+                >
                   Technologies
                 </p>
               </div>
 
               {/* Dedication */}
-              <div className="bg-slate-50 rounded-xl sm:rounded-2xl p-3 sm:p-6 text-center border border-emerald-500/20 hover:border-emerald-400 hover:-translate-y-1 transition duration-300">
-                <h3 className="text-xl sm:text-3xl font-bold text-emerald-500">
+              <div
+                className="
+                  bg-slate-50
+                  rounded-lg
+                  sm:rounded-2xl
+                  p-2
+                  sm:p-6
+                  text-center
+                  border
+                  border-emerald-500/20
+                  hover:border-emerald-400
+                  hover:-translate-y-1
+                  transition
+                  duration-300
+                "
+              >
+                <h3
+                  className="
+                    text-lg
+                    sm:text-3xl
+                    font-bold
+                    text-emerald-500
+                  "
+                >
                   100%
                 </h3>
 
-                <p className="text-[10px] sm:text-sm text-slate-500 mt-1 sm:mt-2">
+                <p
+                  className="
+                    text-[8px]
+                    sm:text-sm
+                    text-slate-500
+                    mt-1
+                    sm:mt-2
+                  "
+                >
                   Dedication
                 </p>
               </div>
@@ -199,24 +346,71 @@ const About = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="grid grid-cols-4 gap-2 sm:gap-4 lg:gap-5">
+            <div
+              className="
+                grid
+                grid-cols-4
+                gap-1.5
+                sm:gap-4
+                lg:gap-5
+              "
+            >
 
               {skills.map((skill, index) => (
                 <motion.div
                   key={skill._id || index}
                   whileHover={{ y: -6 }}
                   transition={{ duration: 0.2 }}
-                  className="bg-slate-50 border border-emerald-500/20 rounded-lg sm:rounded-2xl p-2 sm:p-5 lg:p-6 flex flex-col items-center hover:border-emerald-400 transition duration-300"
+                  className="
+                    bg-slate-50
+                    border
+                    border-emerald-500/20
+                    rounded-md
+                    sm:rounded-2xl
+                    p-1.5
+                    sm:p-5
+                    lg:p-6
+                    flex
+                    flex-col
+                    items-center
+                    hover:border-emerald-400
+                    transition
+                    duration-300
+                    min-w-0
+                  "
                 >
+
                   {/* Icon */}
-                  <div className="text-xl sm:text-3xl lg:text-4xl text-emerald-500 mb-1 sm:mb-3">
+                  <div
+                    className="
+                      text-base
+                      sm:text-3xl
+                      lg:text-4xl
+                      text-emerald-500
+                      mb-1
+                      sm:mb-3
+                    "
+                  >
                     {getIconForSkill(skill.name)}
                   </div>
 
                   {/* Skill Name */}
-                  <p className="text-[9px] sm:text-xs lg:text-sm text-center font-medium text-slate-700">
+                  <p
+                    className="
+                      text-[7px]
+                      sm:text-xs
+                      lg:text-sm
+                      text-center
+                      font-medium
+                      text-slate-700
+                      leading-3
+                      sm:leading-5
+                      break-words
+                    "
+                  >
                     {skill.name}
                   </p>
+
                 </motion.div>
               ))}
 
