@@ -23,7 +23,6 @@ const Home = () => {
 
         <main className="w-full">
           <Hero />
-
           <About />
           <Projects />
           <Journey />

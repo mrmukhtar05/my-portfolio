@@ -10,7 +10,6 @@ import {
   FaCss3Alt,
   FaCode,
 } from "react-icons/fa";
-
 import {
   SiMongodb,
   SiExpress,
@@ -25,7 +24,6 @@ import { getSkills } from "../services/skillService";
 import { getProjects } from "../services/projectService";
 
 // ================= Skill Icons =================
-
 const ICON_MAP = {
   react: <FaReact />,
   "node.js": <FaNodeJs />,
@@ -47,13 +45,11 @@ const ICON_MAP = {
 };
 
 // ================= Get Skill Icon =================
-
 const getIconForSkill = (name = "") => {
   return ICON_MAP[name.toLowerCase()] || <FaCode />;
 };
 
 // ================= Default Skills =================
-
 const DEFAULT_SKILLS = [
   { name: "React" },
   { name: "Node.js" },
@@ -76,7 +72,6 @@ const About = () => {
 
   useEffect(() => {
     // ================= About =================
-
     getAbout()
       .then((res) => {
         if (res?.data) {
@@ -89,7 +84,6 @@ const About = () => {
       .catch(() => {});
 
     // ================= Skills =================
-
     getSkills()
       .then((res) => {
         if (res?.data?.length) {
@@ -99,7 +93,6 @@ const About = () => {
       .catch(() => {});
 
     // ================= Projects =================
-
     getProjects()
       .then((res) => {
         if (res?.data?.length) {
@@ -113,19 +106,16 @@ const About = () => {
     <section
       id="about"
       className="
-        bg-white
-        text-slate-900
-        py-12
+        py-14
         sm:py-20
         lg:py-24
-        px-3
-        sm:px-6
+        bg-white
+        text-slate-900
       "
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
         {/* ================= Heading ================= */}
-
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -133,19 +123,17 @@ const About = () => {
           viewport={{ once: true }}
           className="
             text-center
-            mb-9
-            sm:mb-16
-            lg:mb-20
+            mb-10
+            sm:mb-14
+            lg:mb-16
           "
         >
           <h2
             className="
-              text-2xl
-              sm:text-5xl
+              text-3xl
+              sm:text-4xl
               lg:text-5xl
-              font-extrabold
-              leading-tight
-              tracking-tight
+              font-bold
             "
           >
             About{" "}
@@ -156,15 +144,16 @@ const About = () => {
 
           <p
             className="
-              text-[10px]
-              sm:text-base
+              text-xs
+              sm:text-sm
+              md:text-base
               text-slate-500
-              mt-2
+              mt-3
               sm:mt-4
-              max-w-2xl
+              max-w-xl
               mx-auto
-              leading-4
-              sm:leading-7
+              leading-5
+              sm:leading-6
             "
           >
             I love creating modern, scalable and user-friendly web
@@ -173,7 +162,6 @@ const About = () => {
         </motion.div>
 
         {/* ================= Main Content ================= */}
-
         <div
           className="
             grid
@@ -186,7 +174,6 @@ const About = () => {
         >
 
           {/* ================= Left Side ================= */}
-
           <motion.div
             initial={{ opacity: 0, x: -70 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -195,7 +182,7 @@ const About = () => {
           >
 
             {/* ================= Bio ================= */}
-
+            {/* Hidden on small screen */}
             <p
               className="
                 hidden
@@ -204,7 +191,8 @@ const About = () => {
                 text-slate-500
                 text-sm
                 md:text-base
-                leading-7
+                leading-6
+                sm:leading-7
                 md:leading-8
               "
             >
@@ -212,26 +200,24 @@ const About = () => {
             </p>
 
             {/* ================= Stats ================= */}
-
             <div
               className="
                 grid
                 grid-cols-3
                 gap-1.5
                 sm:gap-4
-                mt-2
+                mt-0
                 sm:mt-10
               "
             >
 
               {/* Projects */}
-
               <div
                 className="
                   bg-slate-50
-                  rounded-lg
+                  rounded-xl
                   sm:rounded-2xl
-                  p-2
+                  p-3
                   sm:p-6
                   text-center
                   border
@@ -255,7 +241,7 @@ const About = () => {
 
                 <p
                   className="
-                    text-[8px]
+                    text-[10px]
                     sm:text-sm
                     text-slate-500
                     mt-1
@@ -267,13 +253,12 @@ const About = () => {
               </div>
 
               {/* Technologies */}
-
               <div
                 className="
                   bg-slate-50
-                  rounded-lg
+                  rounded-xl
                   sm:rounded-2xl
-                  p-2
+                  p-3
                   sm:p-6
                   text-center
                   border
@@ -297,7 +282,7 @@ const About = () => {
 
                 <p
                   className="
-                    text-[8px]
+                    text-[10px]
                     sm:text-sm
                     text-slate-500
                     mt-1
@@ -309,13 +294,12 @@ const About = () => {
               </div>
 
               {/* Dedication */}
-
               <div
                 className="
                   bg-slate-50
-                  rounded-lg
+                  rounded-xl
                   sm:rounded-2xl
-                  p-2
+                  p-3
                   sm:p-6
                   text-center
                   border
@@ -339,7 +323,7 @@ const About = () => {
 
                 <p
                   className="
-                    text-[8px]
+                    text-[10px]
                     sm:text-sm
                     text-slate-500
                     mt-1
@@ -354,7 +338,6 @@ const About = () => {
           </motion.div>
 
           {/* ================= Right Side ================= */}
-
           <motion.div
             initial={{ opacity: 0, x: 70 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -380,9 +363,9 @@ const About = () => {
                     bg-slate-50
                     border
                     border-emerald-500/20
-                    rounded-md
+                    rounded-lg
                     sm:rounded-2xl
-                    p-1.5
+                    p-2
                     sm:p-5
                     lg:p-6
                     flex
@@ -396,7 +379,6 @@ const About = () => {
                 >
 
                   {/* Icon */}
-
                   <div
                     className="
                       text-base
@@ -411,10 +393,9 @@ const About = () => {
                   </div>
 
                   {/* Skill Name */}
-
                   <p
                     className="
-                      text-[7px]
+                      text-[9px]
                       sm:text-xs
                       lg:text-sm
                       text-center
