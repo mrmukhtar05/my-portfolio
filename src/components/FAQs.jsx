@@ -50,7 +50,7 @@ const FAQs = () => {
   };
 
   return (
-    <section id="faqs" className="bg-slate-950 py-24 text-white">
+    <section id="faqs" className="bg-white py-24 text-slate-900">
       <div className="max-w-4xl mx-auto px-6">
 
         {/* Heading */}
@@ -62,10 +62,10 @@ const FAQs = () => {
           className="text-center mb-16"
         >
           <h2 className="text-5xl font-bold">
-            Frequently Asked <span className="text-cyan-400">Questions</span>
+            Frequently Asked <span className="text-emerald-600">Questions</span>
           </h2>
 
-          <p className="text-gray-400 mt-4">
+          <p className="text-slate-500 mt-4">
             Here are some common questions about me and my work.
           </p>
         </motion.div>
@@ -75,19 +75,19 @@ const FAQs = () => {
           {faqs.map((faq, index) => (
             <div
               key={faq._id || index}
-              className="bg-slate-900 border border-slate-700 rounded-2xl overflow-hidden"
+              className="bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden hover:border-emerald-400 transition-colors duration-300"
             >
               <button
                 onClick={() => toggle(index)}
                 className="w-full flex justify-between items-center p-6 text-left"
               >
-                <h3 className="text-lg font-semibold">
+                <h3 className="text-lg font-semibold text-slate-900">
                   {faq.question}
                 </h3>
 
                 <FaChevronDown
-                  className={`transition-transform duration-300 ${
-                    active === index ? "rotate-180 text-cyan-400" : ""
+                  className={`transition-transform duration-300 flex-shrink-0 ml-4 ${
+                    active === index ? "rotate-180 text-emerald-600" : "text-slate-400"
                   }`}
                 />
               </button>
@@ -100,7 +100,7 @@ const FAQs = () => {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <p className="px-6 pb-6 text-gray-400 leading-7">
+                    <p className="px-6 pb-6 text-slate-500 leading-7">
                       {faq.answer}
                     </p>
                   </motion.div>

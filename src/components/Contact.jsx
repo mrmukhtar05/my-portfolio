@@ -52,7 +52,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="bg-slate-900 py-24 text-white">
+    <section id="contact" className="bg-white py-24 text-slate-900">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Heading */}
@@ -64,10 +64,10 @@ const Contact = () => {
           className="text-center mb-16"
         >
           <h2 className="text-5xl font-bold">
-            Contact <span className="text-cyan-400">Me</span>
+            Contact <span className="text-emerald-600">Me</span>
           </h2>
 
-          <p className="text-gray-400 mt-4">
+          <p className="text-slate-500 mt-4">
             Have a project in mind? Let's connect.
           </p>
         </motion.div>
@@ -83,31 +83,31 @@ const Contact = () => {
             className="space-y-6"
           >
 
-            <div className="flex items-center gap-5 bg-slate-800 p-6 rounded-2xl">
-              <FaEnvelope className="text-cyan-400 text-3xl" />
-              <div>
-                <h3 className="font-bold">Email</h3>
-                <p className="text-gray-400">
+            <div className="flex items-center gap-5 bg-slate-50 border border-slate-200 p-6 rounded-2xl">
+              <FaEnvelope className="text-emerald-600 text-3xl flex-shrink-0" />
+              <div className="flex items-center gap-2 flex-wrap sm:flex-nowrap min-w-0">
+                <h3 className="font-bold text-slate-900 flex-shrink-0">Email:</h3>
+                <p className="text-slate-500 truncate">
                   {about.email}
                 </p>
               </div>
             </div>
 
-            <div className="flex items-center gap-5 bg-slate-800 p-6 rounded-2xl">
-              <FaPhoneAlt className="text-cyan-400 text-3xl" />
-              <div>
-                <h3 className="font-bold">Phone</h3>
-                <p className="text-gray-400">
+            <div className="flex items-center gap-5 bg-slate-50 border border-slate-200 p-6 rounded-2xl">
+              <FaPhoneAlt className="text-emerald-600 text-3xl flex-shrink-0" />
+              <div className="flex items-center gap-2 flex-wrap sm:flex-nowrap min-w-0">
+                <h3 className="font-bold text-slate-900 flex-shrink-0">Phone:</h3>
+                <p className="text-slate-500 truncate">
                   {about.phone}
                 </p>
               </div>
             </div>
 
-            <div className="flex items-center gap-5 bg-slate-800 p-6 rounded-2xl">
-              <FaMapMarkerAlt className="text-cyan-400 text-3xl" />
-              <div>
-                <h3 className="font-bold">Location</h3>
-                <p className="text-gray-400">
+            <div className="flex items-center gap-5 bg-slate-50 border border-slate-200 p-6 rounded-2xl">
+              <FaMapMarkerAlt className="text-emerald-600 text-3xl flex-shrink-0" />
+              <div className="flex items-center gap-2 flex-wrap sm:flex-nowrap min-w-0">
+                <h3 className="font-bold text-slate-900 flex-shrink-0">Location:</h3>
+                <p className="text-slate-500 truncate">
                   {about.location}
                 </p>
               </div>
@@ -122,7 +122,7 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: .7 }}
             viewport={{ once: true }}
-            className="bg-slate-800 p-8 rounded-2xl space-y-5"
+            className="bg-slate-50 border border-slate-200 p-8 rounded-2xl space-y-5"
           >
 
             <input
@@ -131,7 +131,7 @@ const Contact = () => {
               value={form.name}
               onChange={handleChange}
               placeholder="Your Name"
-              className="w-full p-4 rounded-lg bg-slate-900 border border-slate-700 outline-none focus:border-cyan-400"
+              className="w-full p-4 rounded-lg bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 outline-none focus:border-emerald-500"
             />
 
             <input
@@ -140,7 +140,7 @@ const Contact = () => {
               value={form.email}
               onChange={handleChange}
               placeholder="Your Email"
-              className="w-full p-4 rounded-lg bg-slate-900 border border-slate-700 outline-none focus:border-cyan-400"
+              className="w-full p-4 rounded-lg bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 outline-none focus:border-emerald-500"
             />
 
             <input
@@ -149,7 +149,7 @@ const Contact = () => {
               value={form.subject}
               onChange={handleChange}
               placeholder="Subject"
-              className="w-full p-4 rounded-lg bg-slate-900 border border-slate-700 outline-none focus:border-cyan-400"
+              className="w-full p-4 rounded-lg bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 outline-none focus:border-emerald-500"
             />
 
             <textarea
@@ -158,20 +158,20 @@ const Contact = () => {
               value={form.message}
               onChange={handleChange}
               placeholder="Your Message"
-              className="w-full p-4 rounded-lg bg-slate-900 border border-slate-700 outline-none focus:border-cyan-400 resize-none"
+              className="w-full p-4 rounded-lg bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 outline-none focus:border-emerald-500 resize-none"
             />
 
             {status.state === "error" && (
-              <p className="text-red-400 text-sm">{status.message}</p>
+              <p className="text-red-500 text-sm">{status.message}</p>
             )}
             {status.state === "success" && (
-              <p className="text-green-400 text-sm">{status.message}</p>
+              <p className="text-emerald-600 text-sm">{status.message}</p>
             )}
 
             <button
               type="submit"
               disabled={status.state === "loading"}
-              className="w-full bg-cyan-500 hover:bg-cyan-400 text-black py-4 rounded-lg font-bold transition disabled:opacity-60"
+              className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-4 rounded-lg font-bold transition disabled:opacity-60"
             >
               {status.state === "loading" ? "Sending..." : "Send Message"}
             </button>
