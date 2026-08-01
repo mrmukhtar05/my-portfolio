@@ -18,12 +18,12 @@ import {
   SiTailwindcss,
   SiTypescript,
 } from "react-icons/si";
+
 import { getAbout } from "../services/aboutService";
 import { getSkills } from "../services/skillService";
 import { getProjects } from "../services/projectService";
 
-// Maps a skill name (from backend) to an icon component.
-// Falls back to a generic code icon if no match is found.
+// Skill icons
 const ICON_MAP = {
   react: <FaReact />,
   "node.js": <FaNodeJs />,
@@ -44,8 +44,12 @@ const ICON_MAP = {
   typescript: <SiTypescript />,
 };
 
-const getIconForSkill = (name = "") => ICON_MAP[name.toLowerCase()] || <FaCode />;
+// Get icon based on skill name
+const getIconForSkill = (name = "") => {
+  return ICON_MAP[name.toLowerCase()] || <FaCode />;
+};
 
+// Default skills
 const DEFAULT_SKILLS = [
   { name: "React" },
   { name: "Node.js" },
@@ -62,23 +66,38 @@ const About = () => {
     name: "Mukhtar Shah",
     bio: "I'm a passionate Full Stack Developer who enjoys building responsive, modern, and high-performance web applications. I mainly work with React.js, Node.js, Express.js and MongoDB.",
   });
+
   const [skills, setSkills] = useState(DEFAULT_SKILLS);
   const [projectCount, setProjectCount] = useState(10);
 
   useEffect(() => {
+    // About
     getAbout()
-      .then((res) => res?.data && setAbout((prev) => ({ ...prev, ...res.data })))
-      .catch(() => {});
-
-    getSkills()
       .then((res) => {
-        if (res?.data?.length) setSkills(res.data);
+        if (res?.data) {
+          setAbout((prev) => ({
+            ...prev,
+            ...res.data,
+          }));
+        }
       })
       .catch(() => {});
 
+    // Skills
+    getSkills()
+      .then((res) => {
+        if (res?.data?.length) {
+          setSkills(res.data);
+        }
+      })
+      .catch(() => {});
+
+    // Projects
     getProjects()
       .then((res) => {
-        if (res?.data?.length) setProjectCount(res.data.length);
+        if (res?.data?.length) {
+          setProjectCount(res.data.length);
+        }
       })
       .catch(() => {});
   }, []);
@@ -86,86 +105,119 @@ const About = () => {
   return (
     <section
       id="about"
-      className="bg-white text-slate-900 py-24 px-6"
+      className="bg-white text-slate-900 py-16 sm:py-20 lg:py-24 px-4 sm:px-6"
     >
       <div className="max-w-7xl mx-auto">
 
-        {/* Heading */}
+        {/* ================= Heading ================= */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-16 lg:mb-20"
         >
-          <h2 className="text-5xl font-bold">
-            About <span className="text-emerald-500">Me</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
+            About{" "}
+            <span className="text-emerald-500">
+              Me
+            </span>
           </h2>
 
-          <p className="text-slate-500 mt-4 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-slate-500 mt-3 sm:mt-4 max-w-2xl mx-auto leading-6">
             I love creating modern, scalable and user-friendly web
-            applications with clean code and beautiful UI. 
+            applications with clean code and beautiful UI.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        {/* ================= Main Content ================= */}
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
-          {/* Left */}
+          {/* ================= Left Side ================= */}
           <motion.div
             initial={{ opacity: 0, x: -70 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-3xl font-bold mb-6">
-              Hi, I'm <span className="text-emerald-500">{about.name}</span>
+            {/* Title */}
+            <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">
+              Hi, I'm{" "}
+              <span className="text-emerald-500">
+                {about.name}
+              </span>
             </h3>
 
-            <p className="text-slate-500 text-sm sm:text-base leading-6 sm:leading-8">
+            {/* Bio */}
+            <p className="text-slate-500 text-xs sm:text-sm md:text-base leading-6 sm:leading-7 md:leading-8">
               {about.bio}
             </p>
 
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-5 mt-10">
+            {/* ================= Stats ================= */}
+            <div className="grid grid-cols-3 gap-2 sm:gap-4 mt-7 sm:mt-10">
 
-              <div className="bg-slate-50 rounded-2xl p-6 text-center border border-emerald-500/20">
-                <h3 className="text-3xl font-bold text-emerald-500">{projectCount}+</h3>
-                <p className="text-slate-500 mt-2">Projects</p>
+              {/* Projects */}
+              <div className="bg-slate-50 rounded-xl sm:rounded-2xl p-3 sm:p-6 text-center border border-emerald-500/20 hover:border-emerald-400 hover:-translate-y-1 transition duration-300">
+                <h3 className="text-xl sm:text-3xl font-bold text-emerald-500">
+                  {projectCount}+
+                </h3>
+
+                <p className="text-[10px] sm:text-sm text-slate-500 mt-1 sm:mt-2">
+                  Projects
+                </p>
               </div>
 
-              <div className="bg-slate-50 rounded-2xl p-6 text-center border border-emerald-500/20">
-                <h3 className="text-3xl font-bold text-emerald-500">{skills.length}+</h3>
-                <p className="text-slate-500 mt-2">Technologies</p>
+              {/* Technologies */}
+              <div className="bg-slate-50 rounded-xl sm:rounded-2xl p-3 sm:p-6 text-center border border-emerald-500/20 hover:border-emerald-400 hover:-translate-y-1 transition duration-300">
+                <h3 className="text-xl sm:text-3xl font-bold text-emerald-500">
+                  {skills.length}+
+                </h3>
+
+                <p className="text-[10px] sm:text-sm text-slate-500 mt-1 sm:mt-2">
+                  Technologies
+                </p>
               </div>
 
-              <div className="bg-slate-50 rounded-2xl p-6 text-center border border-emerald-500/20">
-                <h3 className="text-3xl font-bold text-emerald-500">100%</h3>
-                <p className="text-slate-500 mt-2">Dedication</p>
+              {/* Dedication */}
+              <div className="bg-slate-50 rounded-xl sm:rounded-2xl p-3 sm:p-6 text-center border border-emerald-500/20 hover:border-emerald-400 hover:-translate-y-1 transition duration-300">
+                <h3 className="text-xl sm:text-3xl font-bold text-emerald-500">
+                  100%
+                </h3>
+
+                <p className="text-[10px] sm:text-sm text-slate-500 mt-1 sm:mt-2">
+                  Dedication
+                </p>
               </div>
 
             </div>
           </motion.div>
 
-          {/* Right */}
+          {/* ================= Right Side ================= */}
           <motion.div
             initial={{ opacity: 0, x: 70 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="grid grid-cols-4 gap-2 sm:gap-5">
+            <div className="grid grid-cols-4 gap-2 sm:gap-4 lg:gap-5">
 
               {skills.map((skill, index) => (
-                <div
+                <motion.div
                   key={skill._id || index}
-                  className="bg-slate-50 border border-emerald-500/20 rounded-xl sm:rounded-2xl p-2 sm:p-6 flex flex-col items-center hover:border-emerald-400 hover:-translate-y-2 transition duration-300"
+                  whileHover={{ y: -6 }}
+                  transition={{ duration: 0.2 }}
+                  className="bg-slate-50 border border-emerald-500/20 rounded-lg sm:rounded-2xl p-2 sm:p-5 lg:p-6 flex flex-col items-center hover:border-emerald-400 transition duration-300"
                 >
-                  <div className="text-xl sm:text-4xl text-emerald-500 mb-1 sm:mb-3">
+                  {/* Icon */}
+                  <div className="text-xl sm:text-3xl lg:text-4xl text-emerald-500 mb-1 sm:mb-3">
                     {getIconForSkill(skill.name)}
                   </div>
 
-                  <p className="text-[10px] sm:text-sm text-center">{skill.name}</p>
-                </div>
+                  {/* Skill Name */}
+                  <p className="text-[9px] sm:text-xs lg:text-sm text-center font-medium text-slate-700">
+                    {skill.name}
+                  </p>
+                </motion.div>
               ))}
 
             </div>
